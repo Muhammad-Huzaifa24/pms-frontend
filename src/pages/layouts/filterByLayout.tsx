@@ -7,15 +7,15 @@ import { Outlet } from "react-router-dom";
 const FilterLayout = () => {
 
     return (
-        <div className="min-h-screen flex">
+        <div className="h-screen flex overflow-hidden">
             <Sidebar />
 
-            <div className="flex p-6 flex-1 gap-4">
-                <div className="flex-1">
+            <div className="flex p-6 flex-1 gap-4 overflow-hidden">
+                <div className="flex-1  overflow-y-auto scroll-hidden">
                     <Outlet />
                 </div>
 
-                <div className="w-[200px] md:block hidden">
+                <div className="w-[250px] md:block hidden">
                     <FilterBy />
                 </div>
             </div>

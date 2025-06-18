@@ -32,67 +32,6 @@
   font-family: "Rock Salt", cursive;
 }
 
-/* splash.css */
-.splash-screen {
-  position: fixed;
-  inset: 0;
-  background-color: #ffffff;
-  z-index: 50;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.circle-loader {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
-
-.logo-text {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 5;
-}
-
-/* book split panels */
-.split {
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  top: 0;
-  background-color: #ffffff;
-  z-index: 10;
-  animation: openBook 1s forwards ease-in-out;
-  animation-delay: 2s;
-}
-
-.split.left {
-  left: 0;
-  border-right: 1px solid #ccc;
-  transform-origin: left;
-}
-
-.split.right {
-  right: 0;
-  border-left: 1px solid #ccc;
-  transform-origin: right;
-}
-
-@keyframes openBook {
-  to {
-    transform: scaleX(0);
-  }
+.scroll-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
 }

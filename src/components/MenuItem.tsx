@@ -12,7 +12,7 @@ const MenuItem = ({ menuIcon, menuTitle, onClick }: MenuItemProps) => {
     return (
         <div
             onClick={onClick}
-            className="px-5 py-4 w-auto hover:bg-[#2e2e2e] rounded-full inline-flex items-center gap-3  cursor-pointer">
+            className="px-5 py-3 w-auto hover:bg-[#2e2e2e] rounded-full inline-flex items-center gap-3  cursor-pointer">
             {menuIcon}
             <span className="text-lg f-workSans">{menuTitle}</span>
         </div>

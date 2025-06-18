@@ -53,7 +53,7 @@ const Sidebar = () => {
           />
           <div
             onClick={() => { alert('Create a project') }}
-            className="bg-[#ededed] p-4 text-base text-[#333333] rounded-full mt-4 flex items-center justify-center f-inter font-bold cursor-pointer hover:bg-gray-300"  >Create Project</div>
+            className="bg-[#ededed] p-3 text-base text-[#333333] rounded-full mt-4 flex items-center justify-center f-inter font-bold cursor-pointer hover:bg-gray-300"  >Create Project</div>
         </div>
         <div className="flex gap-5 p-3 items-center hover:bg-[#2e2e2e] rounded-full cursor-pointer"
           onClick={() => { alert('user account settings') }}>
