@@ -1,26 +1,66 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { projects } from "../../data"
+import type { Project } from "../../types";
+
 
 const Project = () => {
+  const navigate = useNavigate();
+
+  const [projectList, setProjectList] = useState<Project[]>([]);
+
+  const handleProjectClick = (id: number) => {
+    navigate(`/projects/${id}`);
+  }
+
+  useEffect(() => {
+    setProjectList(projects);
+  }, [])
 
   return (
-    <div className="w-full p-2">
-      <div className="flex items-center justify-center gap-6  flex-wrap">
-        {[...Array(7)].map((_, index) => (
-          <div
-            key={index}
-            className=" flex-[1_1_300px]   hover:bg-[#181818] border border-[#363636] rounded-xl px-4 py-6"
-          >
-            <h2 className="text-lg font-medium mb-2 f-workSans">Project Title {index + 1}</h2>
-            <p className="text-[#ababab] mb-4 f-workSans">
-              This is a responsive card. Adjust your screen size to see how it behaves.
-            </p>
-            <button className="bg-[#4b4459] text-white cursor-pointer text-xs f-workSans px-4 py-2 rounded-full hover:bg-gray-800 transition">
-              View Details
-            </button>
-          </div>
-        ))}
+    <div className="w-full p-4">
+      <div className="flex items-center justify-center gap-6 flex-wrap">
+        {projectList?.map((project: Project, index) => {
+          const deadline = new Date(project.deadLine).toDateString();
+
+          return (
+            <div
+              key={index}
+              className="flex-[1_1_300px] flex gap-7 flex-col bg-[#121212] hover:bg-[#252525] border border-[#363636] rounded-2xl px-6 py-6 shadow-lg transition"
+            >
+              <div className=" flex justify-between flex-wrap gap-3">
+                <span className="text-lg font-semibold f-workSans text-white">{project?.title}</span>
+                <span
+                  className={`flex items-center gap-1 text-xs px-3 py-1 rounded-full font-medium f-workSans ${project?.status ? "bg-green-600/20 text-green-400" : "bg-red-600/20 text-red-400"
+                    }`}
+                >
+                  {project?.status ? "Completed" : "Pending"}
+                </span>
+              </div>
+              <p className="text-[#ababab]  f-workSans text-base">
+                {project?.description}
+              </p>
+
+              {/* Badges Section */}
+              <div className="flex gap-2  flex-wrap justify-between">
+                <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-gray-600/20 text-gray-300 font-medium f-workSans">
+                  {/* <FaCalendarAlt size={14} /> */}
+                  {deadline}
+                </span>
+              </div>
+
+              <button
+                className="border border-[#4b4459] text-white cursor-pointer text-xs f-workSans w-full px-4 py-2 rounded-full hover:bg-gray-800 transition"
+                onClick={() => (handleProjectClick(project?.id))}
+              >
+                View Details
+              </button>
+            </div>
+          );
+        })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;
