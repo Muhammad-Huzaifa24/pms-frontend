@@ -1,7 +1,7 @@
-import type { Task, Project } from "../types";
+import type { TaskType, ProjectType } from "../types";
 
 // Create 10 Task objects
-const tasks: Task[] = Array.from({ length: 10 }, (_, index) => ({
+const tasks: TaskType[] = Array.from({ length: 10 }, (_, index) => ({
     id: index + 1,
     title: `Task ${index + 1}`,
     description: `Description for Task ${index + 1}`,
@@ -10,7 +10,7 @@ const tasks: Task[] = Array.from({ length: 10 }, (_, index) => ({
 }));
 
 // Create 10 Project objects using the same 10 tasks
-const projects: Project[] = Array.from({ length: 10 }, (_, index) => ({
+const projects: ProjectType[] = Array.from({ length: 10 }, (_, index) => ({
     id: index + 1,
     title: `Project ${index + 1}`,
     description: `Description for Project ${index + 1}`,

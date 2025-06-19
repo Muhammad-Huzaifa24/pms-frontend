@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { projects } from "../../data"
-import type { Project } from "../../types";
+import type { ProjectType } from "../../types";
 
 
 const Project = () => {
   const navigate = useNavigate();
 
-  const [projectList, setProjectList] = useState<Project[]>([]);
+  const [projectList, setProjectList] = useState<ProjectType[]>([]);
 
   const handleProjectClick = (id: number) => {
     navigate(`/projects/${id}`);
@@ -20,7 +20,7 @@ const Project = () => {
   return (
     <div className="w-full p-4">
       <div className="flex items-center justify-center gap-6 flex-wrap">
-        {projectList?.map((project: Project, index) => {
+        {projectList?.map((project: ProjectType, index) => {
           const deadline = new Date(project.deadLine).toDateString();
 
           return (

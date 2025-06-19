@@ -1,4 +1,4 @@
-interface Task {
+interface TaskType {
     id: number,
     title: string,
     description: string,
@@ -7,14 +7,14 @@ interface Task {
 
 }
 
-interface Project {
+interface ProjectType {
     id: number,
     title: string,
     description: string,
     status: boolean,
-    tasks: Task[],
+    tasks: TaskType[],
     deadLine: Date
 
 }
 
-export type { Task, Project };
+export type { TaskType, ProjectType };
